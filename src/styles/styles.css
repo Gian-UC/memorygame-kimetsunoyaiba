@@ -1,0 +1,85 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('../images/wallpaper-kimetsunoyaiba.png'); /* Substitua 'path/to/background.jpg' pelo caminho real da sua imagem de fundo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .container {
+    text-align: center;
+  }
+  
+  .memory-game {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .card {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    perspective: 1000px;
+    border: 2px solid #ff0000;
+    background: linear-gradient(45deg, #ff7e5f, #feb47b);
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+  }
+
+  .front-face,
+.back-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.front-face {
+  transform: rotateY(0deg);
+}
+
+.back-face {
+  background-color: #000;
+  transform: rotateY(180deg);
+}
+
+.card.flip {
+  transform: rotateY(180deg);
+}
+
+.card.matched .front-face,
+.card.matched .back-face {
+  visibility: hidden;
+}
+  
+.win-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  padding: 20px;
+  border: 2px solid #ff0000;
+  border-radius: 10px;
+  font-size: 24px;
+}
+
+.reset-button {
+  background-color: #ffffff;
+  border: 2px solid #ff0000;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.reset-button:hover {
+  background-color: #ff0000;
+  color: #ffffff;
+}
